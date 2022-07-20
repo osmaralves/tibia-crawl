@@ -1,8 +1,8 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { Handler } from '@netlify/functions'
 import fetch from 'node-fetch'
 import * as cheerio from 'cheerio'
 
-export default async (req: VercelRequest, res: VercelResponse) => {
+const handler: Handler = async (event, context) => {
   const params = new URLSearchParams()
   params.append('world', 'Venebra')
   params.append('beprotection', '-1')
@@ -38,8 +38,13 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     })
   })
 
-  res.json({
-    status: 'OK',
-    items,
-  })
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      status: 'OK',
+      items,
+    }),
+  }
 }
+
+export { handler }
