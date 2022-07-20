@@ -1,8 +1,8 @@
-import { VercelRequest, VercelResponse } from '@vercel/node'
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from 'node-fetch'
 import * as cheerio from 'cheerio'
 
-export default async function async(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   const params = new URLSearchParams()
   params.append('world', 'Venebra')
   params.append('beprotection', '-1')
