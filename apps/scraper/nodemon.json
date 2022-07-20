@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "execMap": {
+    "ts": "PORT=4000 sucrase-node src"
+  },
+  "events": {
+    "start": "clear"
+  },
+  "ext": "ts"
+}
